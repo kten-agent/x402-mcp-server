@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hermes-asia-x402": {
+      "command": "node",
+      "args": ["/Users/k.ebisu/.hermes/x402-mcp-server/dist/index.js"],
+      "env": {
+        "X402_WALLET_PRIVATE_KEY": "${X402_WALLET_PRIVATE_KEY}"
+      }
+    }
+  }
+}
