@@ -11,7 +11,7 @@
 import axios, { AxiosError } from 'axios';
 
 // Known constants
-const USDC_CONTRACT = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
+const USDC_CONTRACT = '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913';
 const BASE_CHAIN_ID = 8453n;
 
 // Import wallet utilities
@@ -87,7 +87,7 @@ export function buildAuthorizationHeader(
   const authPayload = Buffer.from(JSON.stringify({
     manifest: manifestToken,
     signature: signature,
-    sender: WALLET_ADDRESS,
+    sender: WALLET_ADDRESS.value,
   })).toString('base64url');
   
   return `x402 ${authPayload}`;

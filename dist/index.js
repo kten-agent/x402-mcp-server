@@ -15,9 +15,6 @@ import axios, { AxiosError } from "axios";
 import { ethers } from "ethers";
 var PRIVATE_KEY = process.env.X402_WALLET_PRIVATE_KEY;
 var WORKER_URL = process.env.WORKER_URL || "https://base-worker-01.j23726919.workers.dev";
-if (!PRIVATE_KEY) {
-  console.error("[Wallet] X402_WALLET_PRIVATE_KEY not set in environment");
-}
 var _wallet = null;
 var _walletAddress = null;
 function getWallet() {
@@ -34,7 +31,9 @@ function getWallet() {
 function getWalletAddress() {
   return getWallet().address;
 }
-var WALLET_ADDRESS = getWalletAddress();
+var WALLET_ADDRESS = { get value() {
+  return getWalletAddress();
+} };
 function getPrivateKey() {
   if (!PRIVATE_KEY) {
     throw new Error("X402_WALLET_PRIVATE_KEY is not set in environment");
@@ -73,7 +72,7 @@ function buildAuthorizationHeader(manifest, signature) {
   const authPayload = Buffer.from(JSON.stringify({
     manifest: manifestToken,
     signature,
-    sender: WALLET_ADDRESS
+    sender: WALLET_ADDRESS.value
   })).toString("base64url");
   return `x402 ${authPayload}`;
 }
@@ -504,3 +503,4 @@ async function main() {
   await server.connect(transport);
 }
 main().catch(console.error);
+//# sourceMappingURL=index.js.map

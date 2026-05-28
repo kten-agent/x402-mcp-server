@@ -8,15 +8,9 @@
 
 import { ethers } from 'ethers';
 
-// Environment variables
+// Validate that we have a private key
 const PRIVATE_KEY = process.env.X402_WALLET_PRIVATE_KEY;
 const WORKER_URL = process.env.WORKER_URL || 'https://base-worker-01.j23726919.workers.dev';
-
-// Validate that we have a private key
-if (!PRIVATE_KEY) {
-  console.error('[Wallet] X402_WALLET_PRIVATE_KEY not set in environment');
-  // Don't throw at import time - allow the server to start but fail at payment time
-}
 
 // Derive wallet address from private key
 let _wallet: ethers.Wallet | null = null;
@@ -41,8 +35,8 @@ export function getWalletAddress(): string {
   return getWallet().address;
 }
 
-// Legacy export for compatibility
-export const WALLET_ADDRESS = getWalletAddress();
+// Lazy export — only resolves when first called (not at import time)
+export const WALLET_ADDRESS = { get value(): string { return getWalletAddress(); } };
 export { WORKER_URL };
 
 /**
@@ -85,7 +79,7 @@ export async function getBalance(): Promise<{ usdc: number; eth: number }> {
   const rpcUrl = 'https://mainnet.base.org';
   const provider = new ethers.JsonRpcProvider(rpcUrl);
   
-  const usdcContract = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
+  const usdcContract = '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913';
   
   // ERC-20 balanceOf
   const usdcAbi = [

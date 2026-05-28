@@ -23,7 +23,6 @@ import {
 
 import { TOOLS, executeTool } from './tools.js';
 import { createProductResources, getCatalogResource } from './resources.js';
-import { WALLET_ADDRESS } from './wallet.js';
 
 // Initialize product resources
 const RESOURCES: Resource[] = createProductResources();

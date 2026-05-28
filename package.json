@@ -8,21 +8,32 @@
     "hermes-asia-x402": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "build": "tsup src/index.ts --format esm --dts --clean",
     "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
-  "keywords": ["mcp", "x402", "ai-agents", "cryptocurrency", "usdc", "base", "hermes"],
+  "keywords": [
+    "mcp",
+    "x402",
+    "ai-agents",
+    "cryptocurrency",
+    "usdc",
+    "base",
+    "hermes"
+  ],
   "author": "Keiten (Hermes Asia)",
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "axios": "^1.7.0",
     "ethers": "^6.13.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "esbuild": "^0.28.0",
+    "tsup": "^8.5.1",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   },
