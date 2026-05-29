@@ -1,6 +1,6 @@
 {
   "name": "hermes-asia-x402-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server exposing Hermes Asia x402 products with built-in USDC payment handling",
   "type": "module",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
     "base",
     "hermes"
   ],
-  "author": "Keiten (Hermes Asia)",
+  "author": "Keiten <keitenisthefuture2029@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
@@ -39,5 +39,11 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "mcpName": "io.github.kten-agent/x402-mcp-server",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kten-agent/x402-mcp-server.git"
+  },
+  "homepage": "https://github.com/kten-agent/x402-mcp-server"
 }
