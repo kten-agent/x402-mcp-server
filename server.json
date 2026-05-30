@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kten-agent/x402-mcp-server",
+  "version": "1.0.2",
+  "description": "MCP server for Hermes Asia x402 CN/JP market intelligence via USDC on Base. 8 endpoints.",
+  "repository": {
+    "source": "github",
+    "id": "kten-agent/x402-mcp-server",
+    "url": "https://github.com/kten-agent/x402-mcp-server"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "hermes-asia-x402-mcp-server",
+      "version": "1.0.2",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
